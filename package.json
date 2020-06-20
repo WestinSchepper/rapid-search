@@ -1,0 +1,22 @@
+{
+  "name": "rapid-search",
+  "version": "1.0.0",
+  "description": "Rapid Search offers fast and easy search functionality for large datasets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/westinschepper/rapid-search.git"
+  },
+  "keywords": [
+    "search"
+  ],
+  "author": "Westin Schepper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/westinschepper/rapid-search/issues"
+  },
+  "homepage": "https://github.com/westinschepper/rapid-search#readme"
+}
