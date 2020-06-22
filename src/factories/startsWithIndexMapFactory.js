@@ -8,11 +8,14 @@ const firstCharacter = require('../helpers/firstCharacter')
 
 /**
  * @param {String[]} records the records the index map will be created from.
- * @description given a sorted array of strings (`startsWithSort.js`), this method will return an index map.
+ * @description
+ * given a sorted array of strings, this method will return an index map.
  * Index `0` indicates the range start, index `1` indicates the range end.
  *
- * { a: [0, 10], b: [11, 20] }
- * @returns {Object.<string, Array<Number>>}
+ * @example
+ * // returns { b: [0, 1], s: [2, 3] }
+ * endsWithIndexMapFactory(['banana', 'blueberry', 'shrimp', 'sugar'])
+ * @returns {Object.<string, Array<Number>>} the indexMap
  */
 function startsWithIndexMapFactory(records) {
   const result = {}

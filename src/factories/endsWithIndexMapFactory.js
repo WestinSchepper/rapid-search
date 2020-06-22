@@ -8,11 +8,14 @@ const lastCharacter = require('../helpers/lastCharacter')
 
 /**
  * @param {String[]} records the records the index map will be created from.
- * @description given a reverse sorted array of strings (`endsWithSort.js`), this method will return an index map.
+ * @description
+ * given a reverse sorted array of strings, this method will return an index map.
  * Index `0` indicates the range start, index `1` indicates the range end.
  *
- * { a: [0, 10], b: [11, 20] }
- * @returns {Object.<string, Array<Number>>}
+ * @example
+ * // returns { a: [0, 2], r: [3, 4] }
+ * endsWithIndexMapFactory(['banana', 'anna', 'papaya', 'water', 'lobster'])
+ * @returns {Object.<string, Array<Number>>} the indexMap
  */
 function endsWithIndexMapFactory(records) {
   const result = {}
