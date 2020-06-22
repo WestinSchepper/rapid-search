@@ -15,8 +15,8 @@ const isArray = require('./isArray')
  * // returns [2, 3, 4]
  * insert([1, 2, 3], 3, 4)
  */
-function insert(list, limit, value) {
+function insertArray(list, limit, value) {
   if (isArray(list) && isInteger(limit)) return [ ...list.slice(-Math.abs(limit - 1)), value ]
 }
 
-module.exports = insert
+module.exports = insertArray

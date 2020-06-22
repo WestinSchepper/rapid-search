@@ -1,11 +1,11 @@
-const insert = require('./insert')
+const insertArray = require('./insertArray')
 
 it('returns an array with the provided value', () => {
   const list = []
   const limit = 3
   const value = 1
   const expecation = [1]
-  const result = insert(list, limit, value)
+  const result = insertArray(list, limit, value)
 
   expect(result).toEqual(expecation)
 })
@@ -15,7 +15,7 @@ it('returns an array with the provided value and the preceeding value removed', 
   const limit = 3
   const value = 4
   const expecation = [2, 3, 4]
-  const result = insert(list, limit, value)
+  const result = insertArray(list, limit, value)
 
   expect(result).toEqual(expecation)
 })
