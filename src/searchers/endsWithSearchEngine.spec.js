@@ -1,0 +1,1 @@
+const endsWithSearchEngine = require('./endsWithSearchEngine')
