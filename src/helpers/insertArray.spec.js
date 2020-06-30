@@ -1,5 +1,4 @@
 const insertArray = require('./insertArray')
-const { describe } = require('yargs')
 
 describe('insertArray', () => {
   it('returns an array with the provided value', () => {
