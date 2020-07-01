@@ -1,25 +1,11 @@
-const mockStartsWithSearchEngine = require('./startsWithSearchEngine')
-const mockEndsWithSearchEngine = require('./endsWithSearchEngine')
-const mockAnyWithSearchEngine = require('./anyWithSearchEngine')
 const createSearchEngine = require('./createSearchEngine')
 
-jest.mock('./startsWithSearchEngine', () => jest.fn())
-jest.mock('./endsWithSearchEngine', () => jest.fn())
-jest.mock('./anyWithSearchEngine', () => jest.fn())
+jest.mock('./createSearchEngine', () => jest.fn())
 
 describe('createSearchEngine', () => {
-  it('calls the startsWithSearchEngine method if the type is `start`', () => {
-    createSearchEngine([], {}, '', 5, 'start')
-    expect(mockStartsWithSearchEngine).toBeCalled()
-  })
+  it('creates and returns a search engine', () => {
+    createSearchEngine([], 'hello', 'start', 5)
 
-  it('calls the endsWithSearchEngine method if the type is `end`', () => {
-    createSearchEngine([], {}, '', 5, 'end')
-    expect(mockEndsWithSearchEngine).toBeCalled()
-  })
-
-  it('calls the anyWithSearchEngine method if the type is `any`', () => {
-    createSearchEngine([], {}, '', 5, 'any')
-    expect(mockAnyWithSearchEngine).toBeCalled()
+    expect(createSearchEngine).toBeCalledWith([], 'hello', 'start', 5)
   })
 })

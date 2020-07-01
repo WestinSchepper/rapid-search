@@ -10,9 +10,16 @@ describe('startsWith', () => {
     expect(result).toEqual(expecation)
   })
 
-  it('returns undefined when the arguments are invalid data types', () => {
-    const expecation = undefined
-    const result = startsWith(null)
+  it('returns false when the arguments are invalid data types', () => {
+    const expecation = false
+    const result = startsWith(null, 7)
+
+    expect(result).toEqual(expecation)
+  })
+
+  it('returns false when query is an empty string', () => {
+    const expecation = false
+    const result = startsWith('hello', '')
 
     expect(result).toEqual(expecation)
   })

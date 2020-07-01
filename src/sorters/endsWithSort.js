@@ -1,3 +1,4 @@
+const clone = require('../helpers/clone')
 const reverseString = require('../helpers/reverseString')
 
 /**
@@ -5,7 +6,7 @@ const reverseString = require('../helpers/reverseString')
  * @description given an array of strings, this method will sort them using the last letter.
  */
 function endsWithSort(records) {
-  return records.sort((a, b) => {
+  return clone(records).sort((a, b) => {
     const ra = reverseString(a).toLowerCase()
     const rb = reverseString(b).toLowerCase()
 

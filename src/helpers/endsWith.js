@@ -9,7 +9,9 @@ const isString = require('./isString')
  * https://jsperf.com/match-end-of-string
  */
 function endsWith(string, query) {
-  if (isString(string) && isString(query)) return string.substring(string.length - query.length) === query
+  if (!isString(string) || !isString(query) || query === '') return false
+
+  return string.substring(string.length - query.length) === query
 }
 
 module.exports = endsWith

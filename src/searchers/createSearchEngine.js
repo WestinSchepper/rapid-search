@@ -1,18 +1,19 @@
-const startsWithSearchEngine = require('./startsWithSearchEngine')
-const endsWithSearchEngine = require('./endsWithSearchEngine')
-const anyWithSearchEngine = require('./anyWithSearchEngine')
+const anyWith = require('../helpers/anyWith')
+const endsWith = require('../helpers/endsWith')
+const startsWith = require('../helpers/startsWith')
+const searchEngine = require('./searchEngine')
 const searchTypes = require('../constants/searchTypes')
 
-const createSearchEngine = (data, indexMap, query, limit, type) => {
+const createSearchEngine = (data, query, limit, type) => {
   switch (type) {
     case searchTypes.start:
-      return startsWithSearchEngine(data, indexMap, query, limit)
+      return searchEngine(data, query, startsWith, limit)
 
     case searchTypes.end:
-      return endsWithSearchEngine(data, indexMap, query, limit)
+      return searchEngine(data, query, endsWith, limit)
 
     default:
-      return anyWithSearchEngine(data, query, limit)
+      return searchEngine(data, query, anyWith, limit)
   }
 }
 
