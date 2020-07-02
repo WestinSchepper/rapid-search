@@ -2,7 +2,10 @@ const startsWithIndexMapFactory = require('./startsWithIndexMapFactory')
 const endsWithIndexMapFactory = require('./endsWithIndexMapFactory')
 const searchTypes = require('../constants/searchTypes')
 
-const createIndexMap = (data, type) => {
+// TODO: Create indexMaps based on indexes
+const createIndexMap = (data, indexes, type) => {
+  if (indexes.length > 0) return {}
+
   switch (type) {
     case searchTypes.start:
       return startsWithIndexMapFactory(data)
