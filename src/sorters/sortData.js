@@ -2,7 +2,9 @@ const startsWithSort = require('./startsWithSort')
 const endsWithSort = require('./endsWithSort')
 const searchTypes = require('../constants/searchTypes')
 
-const sortData = (data, type) => {
+const sortData = (data, indexes, type) => {
+  if (indexes.length > 0) return data
+
   switch (type) {
     case searchTypes.start:
       return startsWithSort(data)
