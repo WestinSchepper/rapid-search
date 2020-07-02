@@ -4,14 +4,15 @@ const lastCharacter = require('./lastCharacter')
 const firstCharacter = require('./firstCharacter')
 const searchTypes = require('../constants/searchTypes')
 
-const resolveDataSource = (data, lastResult, indexMap, query, lastQuery, type) => {
+const resolveDataSource = (data, lastResult, indexes, indexMap, query, lastQuery, type) => {
   if (startsWith(query, lastQuery)) return lastResult
-  let indexes = [0, data.length - 1]
+  let indexRange = [0, data.length - 1]
 
-  if (searchTypes.start === type) indexes = indexMap[firstCharacter(query)]
-  if (searchTypes.end === type) indexes = indexMap[lastCharacter(query)]
+  if (indexes.length > 0) return slice(data, ...indexRange)
+  if (searchTypes.start === type) indexRange = indexMap[firstCharacter(query)]
+  if (searchTypes.end === type) indexRange = indexMap[lastCharacter(query)]
 
-  return slice(data, ...indexes)
+  return slice(data, ...indexRange)
 }
 
 module.exports = resolveDataSource
