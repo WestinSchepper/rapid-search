@@ -1,11 +1,13 @@
-function* searchEngine(data, query, predicate, limit) {
+const assertMatch = require('../helpers/assertMatch')
+
+function* searchEngine(data, indexes, query, predicate, limit) {
   const result = []
   let nextLimit = limit
 
   if (query === '') return result
 
   for (let i = 0; i < data.length; i++) {
-    if (predicate(data[i], query)) {
+    if (assertMatch(data[i], indexes, query, predicate)) {
       result.push(data[i])
     }
 
